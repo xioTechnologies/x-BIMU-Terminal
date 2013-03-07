@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1BB104BF-DB36-4E8B-A521-E337C1AE87EF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>x_BIMU_Terminal</RootNamespace>
+    <AssemblyName>x-BIMU Terminal</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>x-io_icon_white_transparent.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Tao.OpenGl">
+      <HintPath>3DQuaternion\Tao.OpenGl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.Platform.Windows">
+      <HintPath>3DQuaternion\Tao.Platform.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph">
+      <HintPath>RealTimeGraph\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="3DQuaternion\Form3DQuaternion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="3DQuaternion\Form3DQuaternion.designer.cs">
+      <DependentUpon>Form3DQuaternion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacketCounter.cs" />
+    <Compile Include="TextBoxBuffer.cs" />
+    <Compile Include="FormGetValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGetValue.Designer.cs">
+      <DependentUpon>FormGetValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTerminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTerminal.Designer.cs">
+      <DependentUpon>FormTerminal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oscilloscope\Oscilloscope.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialDecoder.cs" />
+    <Compile Include="Wizards\FormGyrAndAccCalWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\FormGyrAndAccCalWizard.Designer.cs">
+      <DependentUpon>FormGyrAndAccCalWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\FormMagCalWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\FormMagCalWizard.Designer.cs">
+      <DependentUpon>FormMagCalWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\FormWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\FormWizard.Designer.cs">
+      <DependentUpon>FormWizard.cs</DependentUpon>
+    </Compile>
+    <Content Include="x-io_icon_white_transparent.ico" />
+    <EmbeddedResource Include="3DQuaternion\Form3DQuaternion.resx">
+      <DependentUpon>Form3DQuaternion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGetValue.resx">
+      <DependentUpon>FormGetValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTerminal.resx">
+      <DependentUpon>FormTerminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Content Include="3DQuaternion\Back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3DQuaternion\Bottom.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3DQuaternion\Front.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3DQuaternion\Left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3DQuaternion\Right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3DQuaternion\Top.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Oscilloscope\accelerometerOscilloscope_settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Oscilloscope\batteryOscilloscope_settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Oscilloscope\gyroscopeOscilloscope_settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Oscilloscope\magnetometerOscilloscope_settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Wizards\FormGyrAndAccCalWizard.resx">
+      <DependentUpon>FormGyrAndAccCalWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\FormMagCalWizard.resx">
+      <DependentUpon>FormMagCalWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\FormWizard.resx">
+      <DependentUpon>FormWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Oscilloscope\Osc_DLL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
