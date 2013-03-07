@@ -75,7 +75,8 @@ namespace x_BIMU_Terminal
         public FormTerminal()
         {
             InitializeComponent();
-            menuStrip.Items.Remove(toolStripMenuItemTools);
+            //toolStripMenuItemTools.DropDownItems.Remove(toolStripMenuItemGyrAndAccCalibrationWizard);
+            //toolStripMenuItemTools.DropDownItems.Remove(toolStripMenuItemMagneticCalibrationWizard);
         }
 
         #region Form load and close
@@ -349,6 +350,18 @@ namespace x_BIMU_Terminal
             serialDecoder.OKReceived += formMagCalWizard.OKReceived;
             serialDecoder.SensorsReceived += formMagCalWizard.SensorsReceived;
             formMagCalWizard.ShowDialog();
+        }
+
+        /// <summary>
+        /// toolStripMenuItemFirmwareUploadWizard Click event to start firmware upload wizard.
+        /// </summary>
+        private void toolStripMenuItemFirmwareUploadWizard_Click(object sender, EventArgs e)
+        {
+            FormFirmwareUploadWizard formFirmwareWizard = new FormFirmwareUploadWizard();
+            formFirmwareWizard.serialPort = serialPort;
+            formFirmwareWizard.SendSerialPort += SendSerialPort;
+            serialDecoder.OKReceived += formFirmwareWizard.OKReceived;
+            formFirmwareWizard.ShowDialog();
         }
 
         /// <summary>

@@ -68,7 +68,7 @@
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemGyrAndAccCalibrationWizard = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMagneticCalibrationWizard = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemFirmwareUploaderWizard = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemFirmwareUploadWizard = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemwwwxiocouk = new System.Windows.Forms.ToolStripMenuItem();
@@ -364,7 +364,7 @@
             this.toolStripMenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemGyrAndAccCalibrationWizard,
             this.toolStripMenuItemMagneticCalibrationWizard,
-            this.toolStripMenuItemFirmwareUploaderWizard});
+            this.toolStripMenuItemFirmwareUploadWizard});
             this.toolStripMenuItemTools.Name = "toolStripMenuItemTools";
             this.toolStripMenuItemTools.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItemTools.Text = "Tools";
@@ -383,12 +383,12 @@
             this.toolStripMenuItemMagneticCalibrationWizard.Text = "Magnetic Calibration Wizard";
             this.toolStripMenuItemMagneticCalibrationWizard.Click += new System.EventHandler(this.toolStripMenuItemMagCalWizard_Click);
             // 
-            // toolStripMenuItemFirmwareUploaderWizard
+            // toolStripMenuItemFirmwareUploadWizard
             // 
-            this.toolStripMenuItemFirmwareUploaderWizard.Name = "toolStripMenuItemFirmwareUploaderWizard";
-            this.toolStripMenuItemFirmwareUploaderWizard.Size = new System.Drawing.Size(335, 22);
-            this.toolStripMenuItemFirmwareUploaderWizard.Text = "Firmware Uploader Wizard";
-            this.toolStripMenuItemFirmwareUploaderWizard.Click += new System.EventHandler(this.toolStripMenuItemFirmwareUploaderWizard_Click);
+            this.toolStripMenuItemFirmwareUploadWizard.Name = "toolStripMenuItemFirmwareUploadWizard";
+            this.toolStripMenuItemFirmwareUploadWizard.Size = new System.Drawing.Size(335, 22);
+            this.toolStripMenuItemFirmwareUploadWizard.Text = "Firmware Upload Wizard";
+            this.toolStripMenuItemFirmwareUploadWizard.Click += new System.EventHandler(this.toolStripMenuItemFirmwareUploadWizard_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -404,14 +404,12 @@
             this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
             this.toolStripMenuItemAbout.Size = new System.Drawing.Size(156, 22);
             this.toolStripMenuItemAbout.Text = "About";
-            this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
             // 
             // toolStripMenuItemwwwxiocouk
             // 
             this.toolStripMenuItemwwwxiocouk.Name = "toolStripMenuItemwwwxiocouk";
             this.toolStripMenuItemwwwxiocouk.Size = new System.Drawing.Size(156, 22);
             this.toolStripMenuItemwwwxiocouk.Text = "www.x-io.co.uk";
-            this.toolStripMenuItemwwwxiocouk.Click += new System.EventHandler(this.toolStripMenuItemwwwxiocouk_Click);
             // 
             // statusStrip_packetsRecieved
             // 
@@ -507,7 +505,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel22;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel23;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel21;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFirmwareUploaderWizard;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFirmwareUploadWizard;
     }
 }
 
