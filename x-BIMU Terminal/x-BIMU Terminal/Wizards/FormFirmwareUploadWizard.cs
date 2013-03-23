@@ -79,7 +79,7 @@ namespace x_BIMU_Terminal
             this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += Environment.NewLine + "Running bootloader..."; })));
             serialPort.Close();
             ProcessStartInfo processInfo = new ProcessStartInfo("ds30LoaderConsole.exe");
-            processInfo.Arguments = "\"-f=C:\\MyFiles\\x-io\\Products\\x-BIMU\\x-BIMU-Firmware\\x-BIMU Firmware\\x-BIMU Firmware.hex\"" +
+            processInfo.Arguments = "\"-f=" + textBox_hexFile.Text + "\"" +
                                     " -d=PIC24FJ64GA102 " +
                                     "\"-k=" + serialPort.PortName + "\"" +
                                     " -r=115200 --writef --ht=10000 --polltime=100 --timeout=3000 -o";
