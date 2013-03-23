@@ -51,9 +51,6 @@
     <Reference Include="Tao.Platform.Windows">
       <HintPath>3DQuaternion\Tao.Platform.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="ZedGraph">
-      <HintPath>RealTimeGraph\ZedGraph.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DQuaternion\Form3DQuaternion.cs">

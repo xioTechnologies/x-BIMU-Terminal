@@ -82,7 +82,7 @@ namespace x_BIMU_Terminal
             processInfo.Arguments = "\"-f=C:\\MyFiles\\x-io\\Products\\x-BIMU\\x-BIMU-Firmware\\x-BIMU Firmware\\x-BIMU Firmware.hex\"" +
                                     " -d=PIC24FJ64GA102 " +
                                     "\"-k=" + serialPort.PortName + "\"" +
-                                    " -r=115200 --writef --ht=10000 --polltime=500 --timeout=3000 -o";
+                                    " -r=115200 --writef --ht=10000 --polltime=100 --timeout=3000 -o";
             processInfo.UseShellExecute = false;
             Process process = Process.Start(processInfo);
             process.WaitForExit();
