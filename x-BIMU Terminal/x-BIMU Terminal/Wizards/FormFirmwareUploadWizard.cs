@@ -43,12 +43,9 @@ namespace x_BIMU_Terminal
             openFileDialog.Filter = "Hex Files|*.hex";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                textBox_hexFile.Text = openFileDialog.FileName.ToString();
+                textBoxHexFile.Text = openFileDialog.FileName.ToString();
             }
-            if (File.Exists(textBox_hexFile.Text))
-            {
-                buttonNextPage1.Enabled = true;
-            }
+            buttonNextPage1.Enabled = File.Exists(textBoxHexFile.Text);
         }
 
         /// <summary>
@@ -79,7 +76,7 @@ namespace x_BIMU_Terminal
             this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += Environment.NewLine + "Running bootloader..."; })));
             serialPort.Close();
             ProcessStartInfo processInfo = new ProcessStartInfo("ds30LoaderConsole.exe");
-            processInfo.Arguments = "\"-f=" + textBox_hexFile.Text + "\"" +
+            processInfo.Arguments = "\"-f=" + textBoxHexFile.Text + "\"" +
                                     " -d=PIC24FJ64GA102 " +
                                     "\"-k=" + serialPort.PortName + "\"" +
                                     " -r=115200 --writef --ht=10000 --polltime=100 --timeout=3000 -o";

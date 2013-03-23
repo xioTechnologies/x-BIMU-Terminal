@@ -162,4 +162,8 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
+##################
+# Binary archive
+##################
+
 bin-archive/

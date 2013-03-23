@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label_hexFile = new System.Windows.Forms.Label();
-            this.textBox_hexFile = new System.Windows.Forms.TextBox();
-            this.button_browse = new System.Windows.Forms.Button();
+            this.labelHexFile = new System.Windows.Forms.Label();
+            this.textBoxHexFile = new System.Windows.Forms.TextBox();
+            this.buttonBrowse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.panelPage1.SuspendLayout();
             this.panelPage2.SuspendLayout();
@@ -39,12 +39,12 @@
             // 
             // panelPage1
             // 
-            this.panelPage1.Controls.Add(this.label_hexFile);
-            this.panelPage1.Controls.Add(this.textBox_hexFile);
-            this.panelPage1.Controls.Add(this.button_browse);
-            this.panelPage1.Controls.SetChildIndex(this.button_browse, 0);
-            this.panelPage1.Controls.SetChildIndex(this.textBox_hexFile, 0);
-            this.panelPage1.Controls.SetChildIndex(this.label_hexFile, 0);
+            this.panelPage1.Controls.Add(this.labelHexFile);
+            this.panelPage1.Controls.Add(this.textBoxHexFile);
+            this.panelPage1.Controls.Add(this.buttonBrowse);
+            this.panelPage1.Controls.SetChildIndex(this.buttonBrowse, 0);
+            this.panelPage1.Controls.SetChildIndex(this.textBoxHexFile, 0);
+            this.panelPage1.Controls.SetChildIndex(this.labelHexFile, 0);
             this.panelPage1.Controls.SetChildIndex(this.buttonCancelPage1, 0);
             this.panelPage1.Controls.SetChildIndex(this.buttonNextPage1, 0);
             this.panelPage1.Controls.SetChildIndex(this.labelTitlePage1, 0);
@@ -75,31 +75,31 @@
             this.labelTextPage3.Size = new System.Drawing.Size(195, 13);
             this.labelTextPage3.Text = "The firmware upload wizard is complete.";
             // 
-            // label_hexFile
+            // labelHexFile
             // 
-            this.label_hexFile.AutoSize = true;
-            this.label_hexFile.Location = new System.Drawing.Point(3, 172);
-            this.label_hexFile.Name = "label_hexFile";
-            this.label_hexFile.Size = new System.Drawing.Size(48, 13);
-            this.label_hexFile.TabIndex = 6;
-            this.label_hexFile.Text = "Hex File:";
+            this.labelHexFile.AutoSize = true;
+            this.labelHexFile.Location = new System.Drawing.Point(3, 172);
+            this.labelHexFile.Name = "labelHexFile";
+            this.labelHexFile.Size = new System.Drawing.Size(48, 13);
+            this.labelHexFile.TabIndex = 6;
+            this.labelHexFile.Text = "Hex File:";
             // 
-            // textBox_hexFile
+            // textBoxHexFile
             // 
-            this.textBox_hexFile.Location = new System.Drawing.Point(57, 169);
-            this.textBox_hexFile.Name = "textBox_hexFile";
-            this.textBox_hexFile.Size = new System.Drawing.Size(244, 20);
-            this.textBox_hexFile.TabIndex = 7;
+            this.textBoxHexFile.Location = new System.Drawing.Point(57, 169);
+            this.textBoxHexFile.Name = "textBoxHexFile";
+            this.textBoxHexFile.Size = new System.Drawing.Size(244, 20);
+            this.textBoxHexFile.TabIndex = 7;
             // 
-            // button_browse
+            // buttonBrowse
             // 
-            this.button_browse.Location = new System.Drawing.Point(307, 167);
-            this.button_browse.Name = "button_browse";
-            this.button_browse.Size = new System.Drawing.Size(25, 23);
-            this.button_browse.TabIndex = 8;
-            this.button_browse.Text = "...";
-            this.button_browse.UseVisualStyleBackColor = true;
-            this.button_browse.Click += new System.EventHandler(this.button_browse_Click);
+            this.buttonBrowse.Location = new System.Drawing.Point(307, 167);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(25, 23);
+            this.buttonBrowse.TabIndex = 8;
+            this.buttonBrowse.Text = "...";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.button_browse_Click);
             // 
             // FormFirmwareUploadWizard
             // 
@@ -121,9 +121,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label_hexFile;
-        private System.Windows.Forms.TextBox textBox_hexFile;
-        private System.Windows.Forms.Button button_browse;
+        private System.Windows.Forms.Label labelHexFile;
+        private System.Windows.Forms.TextBox textBoxHexFile;
+        private System.Windows.Forms.Button buttonBrowse;
 
     }
 }
