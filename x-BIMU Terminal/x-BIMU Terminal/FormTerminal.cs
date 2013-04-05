@@ -159,7 +159,7 @@ namespace x_BIMU_Terminal
             }
 
             // Update packet counters
-            toolStripStatusLabel_packetsReceived.Text = "Packets Recieved: " + packetCounter.PacketsReceived.ToString();
+            toolStripStatusLabelPacketsReceived.Text = "Packets Recieved: " + packetCounter.PacketsReceived.ToString();
             toolStripStatusLabelPacketRate.Text = "Packets Per Second: " + packetCounter.PacketsRate.ToString();
         }
 
@@ -177,7 +177,7 @@ namespace x_BIMU_Terminal
         #region Menu strip
 
         /// <summary>
-        /// toolStripMenuItemSerialPort DropDownItemClicke event to select open or close serial port.
+        /// toolStripMenuItemSerialPort DropDownItemClicke event to select or close serial port.
         /// </summary>
         private void toolStripMenuItemSerialPort_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {

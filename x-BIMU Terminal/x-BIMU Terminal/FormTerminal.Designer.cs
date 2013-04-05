@@ -72,11 +72,11 @@
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemwwwxiocouk = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip_packetsRecieved = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel_packetsReceived = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelPacketsReceived = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelPacketRate = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
-            this.statusStrip_packetsRecieved.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox
@@ -404,30 +404,31 @@
             this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
             this.toolStripMenuItemAbout.Size = new System.Drawing.Size(156, 22);
             this.toolStripMenuItemAbout.Text = "About";
+            this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
             // 
             // toolStripMenuItemwwwxiocouk
             // 
             this.toolStripMenuItemwwwxiocouk.Name = "toolStripMenuItemwwwxiocouk";
             this.toolStripMenuItemwwwxiocouk.Size = new System.Drawing.Size(156, 22);
             this.toolStripMenuItemwwwxiocouk.Text = "www.x-io.co.uk";
+            this.toolStripMenuItemwwwxiocouk.Click += new System.EventHandler(this.toolStripMenuItemwwwxiocouk_Click);
             // 
-            // statusStrip_packetsRecieved
+            // statusStrip
             // 
-            this.statusStrip_packetsRecieved.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel_packetsReceived,
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelPacketsReceived,
             this.toolStripStatusLabelPacketRate});
-            this.statusStrip_packetsRecieved.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip_packetsRecieved.Location = new System.Drawing.Point(0, 342);
-            this.statusStrip_packetsRecieved.Name = "statusStrip_packetsRecieved";
-            this.statusStrip_packetsRecieved.Size = new System.Drawing.Size(584, 20);
-            this.statusStrip_packetsRecieved.TabIndex = 2;
-            this.statusStrip_packetsRecieved.Text = "Packets Received:";
+            this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip.Location = new System.Drawing.Point(0, 342);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(584, 20);
+            this.statusStrip.TabIndex = 2;
             // 
-            // toolStripStatusLabel_packetsReceived
+            // toolStripStatusLabelPacketsReceived
             // 
-            this.toolStripStatusLabel_packetsReceived.Name = "toolStripStatusLabel_packetsReceived";
-            this.toolStripStatusLabel_packetsReceived.Size = new System.Drawing.Size(204, 15);
-            this.toolStripStatusLabel_packetsReceived.Text = "toolStripStatusLabel_packetsReceived";
+            this.toolStripStatusLabelPacketsReceived.Name = "toolStripStatusLabelPacketsReceived";
+            this.toolStripStatusLabelPacketsReceived.Size = new System.Drawing.Size(199, 15);
+            this.toolStripStatusLabelPacketsReceived.Text = "toolStripStatusLabelPacketsReceived";
             // 
             // toolStripStatusLabelPacketRate
             // 
@@ -441,7 +442,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 362);
             this.Controls.Add(this.textBox);
-            this.Controls.Add(this.statusStrip_packetsRecieved);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
@@ -451,8 +452,8 @@
             this.Load += new System.EventHandler(this.FormTerminal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.statusStrip_packetsRecieved.ResumeLayout(false);
-            this.statusStrip_packetsRecieved.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,8 +489,8 @@
         private System.Windows.Forms.ToolStripMenuItem exitCommandModeEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setXBeeChannelCHToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGyrAndAccCalibrationWizard;
-        private System.Windows.Forms.StatusStrip statusStrip_packetsRecieved;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_packetsReceived;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPacketsReceived;
         private System.Windows.Forms.ToolStripMenuItem setBinaryPacketModeMPToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPacketRate;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemXStick;
