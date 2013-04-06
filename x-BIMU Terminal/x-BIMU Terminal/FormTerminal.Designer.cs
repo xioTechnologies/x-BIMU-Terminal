@@ -71,10 +71,10 @@
             this.toolStripMenuItemFirmwareUploadWizard = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemwwwxiocouk = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelPacketsReceived = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelPacketRate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripMenuItemSourceCode = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -394,7 +394,7 @@
             // 
             this.toolStripMenuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemAbout,
-            this.toolStripMenuItemwwwxiocouk});
+            this.toolStripMenuItemSourceCode});
             this.toolStripMenuItemHelp.Name = "toolStripMenuItemHelp";
             this.toolStripMenuItemHelp.Size = new System.Drawing.Size(44, 20);
             this.toolStripMenuItemHelp.Text = "Help";
@@ -402,16 +402,9 @@
             // toolStripMenuItemAbout
             // 
             this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(156, 22);
+            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemAbout.Text = "About";
             this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
-            // 
-            // toolStripMenuItemwwwxiocouk
-            // 
-            this.toolStripMenuItemwwwxiocouk.Name = "toolStripMenuItemwwwxiocouk";
-            this.toolStripMenuItemwwwxiocouk.Size = new System.Drawing.Size(156, 22);
-            this.toolStripMenuItemwwwxiocouk.Text = "www.x-io.co.uk";
-            this.toolStripMenuItemwwwxiocouk.Click += new System.EventHandler(this.toolStripMenuItemwwwxiocouk_Click);
             // 
             // statusStrip
             // 
@@ -435,6 +428,13 @@
             this.toolStripStatusLabelPacketRate.Name = "toolStripStatusLabelPacketRate";
             this.toolStripStatusLabelPacketRate.Size = new System.Drawing.Size(170, 15);
             this.toolStripStatusLabelPacketRate.Text = "toolStripStatusLabelPacketRate";
+            // 
+            // toolStripMenuItemSourceCode
+            // 
+            this.toolStripMenuItemSourceCode.Name = "toolStripMenuItemSourceCode";
+            this.toolStripMenuItemSourceCode.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemSourceCode.Text = "Source Code";
+            this.toolStripMenuItemSourceCode.Click += new System.EventHandler(this.toolStripMenuItemSourceCode_Click);
             // 
             // FormTerminal
             // 
@@ -472,7 +472,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMagnetometer;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemQuaternion;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTools;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemwwwxiocouk;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMagneticCalibrationWizard;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCommands;
@@ -507,6 +506,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel23;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel21;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFirmwareUploadWizard;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSourceCode;
     }
 }
 

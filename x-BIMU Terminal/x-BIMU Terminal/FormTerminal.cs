@@ -148,9 +148,9 @@ namespace x_BIMU_Terminal
             if (textBox.Enabled && !textBoxBuffer.IsEmpty())
             {
                 textBox.AppendText(textBoxBuffer.Get());
-                if (textBox.Text.Length > textBox.MaxLength)
+                if (textBox.Text.Length > textBox.MaxLength)    // discard first half of textBox when number of characters exceeds length
                 {
-                    textBox.Text = textBox.Text.Substring(textBox.Text.Length / 2, textBox.Text.Length - textBox.Text.Length / 2);  // discard first half of textBox
+                    textBox.Text = textBox.Text.Substring(textBox.Text.Length / 2, textBox.Text.Length - textBox.Text.Length / 2);
                 }
             }
             else
@@ -158,7 +158,7 @@ namespace x_BIMU_Terminal
                 textBoxBuffer.Clear();
             }
 
-            // Update packet counters
+            // Update packet counter values
             toolStripStatusLabelPacketsReceived.Text = "Packets Recieved: " + packetCounter.PacketsReceived.ToString();
             toolStripStatusLabelPacketRate.Text = "Packets Per Second: " + packetCounter.PacketsRate.ToString();
         }
@@ -181,7 +181,7 @@ namespace x_BIMU_Terminal
         /// </summary>
         private void toolStripMenuItemSerialPort_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            // Refresh port list is refresh item clicked
+            // Close serial port and refresh list is refresh item clicked
             if (e.ClickedItem.Text == "Refresh List")
             {
                 CloseSerialPort();
@@ -381,17 +381,15 @@ namespace x_BIMU_Terminal
         }
 
         /// <summary>
-        /// toolStripMenuItemwwwxiocouk Click event to open web browser.
+        /// toolStripMenuItemSourceCode Click event to open web browser.
         /// </summary>
-        private void toolStripMenuItemwwwxiocouk_Click(object sender, EventArgs e)
+        private void toolStripMenuItemSourceCode_Click(object sender, EventArgs e)
         {
             try
             {
-                System.Diagnostics.Process.Start("http://www.x-io.co.uk");
+                System.Diagnostics.Process.Start("https://github.com/xioTechnologies/x-BIMU-Terminal");
             }
-            catch
-            {
-            }
+            catch { }
         }
 
         #endregion
@@ -415,6 +413,9 @@ namespace x_BIMU_Terminal
         /// <summary>
         /// Opens serial port. Displays error in MessageBox if unsuccessful.
         /// </summary>
+        /// <param name="portName">
+        /// Name of port to be opened.
+        /// </param> 
         /// <returns>
         /// true if successful.
         /// </returns>
@@ -494,11 +495,11 @@ namespace x_BIMU_Terminal
             // Parse bytes to textBoxBuffer and serialDecoder
             foreach (byte b in readBuffer)
             {
-                if ((b < 0x20 || b > 0x7F) && b != '\r')
+                if ((b < 0x20 || b > 0x7F) && b != '\r')    // replace non-printable characters with '.'
                 {
                     textBoxBuffer.Put(".");
                 }
-                else if (b == '\r')
+                else if (b == '\r')     // replace carriage return with '↵' and valid new line
                 {
                     textBoxBuffer.Put("↵" + Environment.NewLine);
                 }
