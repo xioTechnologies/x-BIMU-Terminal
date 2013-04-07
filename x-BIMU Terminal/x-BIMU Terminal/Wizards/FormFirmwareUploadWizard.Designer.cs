@@ -107,7 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1198, 342);
             this.Name = "FormFirmwareUploadWizard";
-            this.Text = "Magnetometer Calibration Wizard";
+            this.Text = "Firmware Upload Wizard";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.panelPage1.ResumeLayout(false);
             this.panelPage1.PerformLayout();
