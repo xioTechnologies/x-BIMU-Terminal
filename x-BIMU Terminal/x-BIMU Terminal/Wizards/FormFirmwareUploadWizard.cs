@@ -55,6 +55,7 @@ namespace x_BIMU_Terminal
         {
             Reset();
             RunBootloader();
+            this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += Environment.NewLine + Environment.NewLine + "Click Next to continue..."; })));
         }
 
         /// <summary>
@@ -83,9 +84,15 @@ namespace x_BIMU_Terminal
             processInfo.UseShellExecute = false;
             Process process = Process.Start(processInfo);
             process.WaitForExit();
-            process.Close();
             serialPort.Open();
-            this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += "Compelte."; })));
+            if (process.ExitCode == 0)
+            {
+                this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += "Compelte."; })));
+            }
+            else
+            {
+                this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += "Failed."; })));
+            }
         }
     }
 }

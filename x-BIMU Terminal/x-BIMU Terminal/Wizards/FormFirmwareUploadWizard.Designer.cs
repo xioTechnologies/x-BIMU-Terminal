@@ -57,8 +57,8 @@
             // 
             // labelTitlePage2
             // 
-            this.labelTitlePage2.Size = new System.Drawing.Size(254, 25);
-            this.labelTitlePage2.Text = "Performing Upload Tasks";
+            this.labelTitlePage2.Size = new System.Drawing.Size(203, 25);
+            this.labelTitlePage2.Text = "Uploading Firmware";
             // 
             // labelTitlePage3
             // 
