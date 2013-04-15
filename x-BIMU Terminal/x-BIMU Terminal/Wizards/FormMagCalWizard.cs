@@ -161,5 +161,13 @@ namespace x_BIMU_Terminal
             ExicuteCommand("EX\r");     // exit command mode
             this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += "Compelte."; })));
         }
+
+        /// <summary>
+        /// FormMagCalWizard FormClosing event to close file.
+        /// </summary>
+        private void FormMagCalWizard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            streamWriter.Close();
+        }
     }
 }

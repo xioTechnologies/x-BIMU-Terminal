@@ -67,6 +67,7 @@
             this.ClientSize = new System.Drawing.Size(1198, 342);
             this.Name = "FormMagCalWizard";
             this.Text = "Magnetometer Calibration Wizard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMagCalWizard_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.panelPage1.ResumeLayout(false);
             this.panelPage1.PerformLayout();
