@@ -167,7 +167,11 @@ namespace x_BIMU_Terminal
         /// </summary>
         private void FormMagCalWizard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            streamWriter.Close();
+            try
+            {
+                streamWriter.Close();
+            }
+            catch { }
         }
     }
 }
