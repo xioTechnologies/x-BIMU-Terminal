@@ -52,8 +52,7 @@ namespace x_BIMU_Terminal
             ExicuteCommand("LP,0\r");       // XBee low power mode disabled
             ExicuteCommand("QR,6\r");       // quaternion send rate = 32 Hz
             ExicuteCommand("SR,7\r");       // sensor send rate = 64 Hz
-            ExicuteCommand("BR,1\r");       // battery send rate = true Hz
-            ExicuteCommand("BP,0\r");       // binary packet mode disabled
+            ExicuteCommand("BR,1\r");       // battery send rate = 1 Hz
             ExicuteCommand("ST,0\r");       // sleep timer disabled
             ExicuteCommand("MSXX,10000\r"); // remove current magnetic calibration parameters
             ExicuteCommand("MSXY,0\r");

@@ -201,7 +201,6 @@ namespace x_BIMU_Terminal
             ExicuteCommand("QR,6\r");       // quaternion send rate = 32 Hz
             ExicuteCommand("SR,7\r");       // sensor send rate = 64 Hz
             ExicuteCommand("BR,1\r");       // battery send rate = 1 Hz
-            ExicuteCommand("BP,0\r");       // binary packet mode disabled
             ExicuteCommand("ST,0\r");       // sleep timer disabled
             ExicuteCommand("GSX,10000\r");  // set sensor output units to lsb
             ExicuteCommand("GSY,10000\r");
