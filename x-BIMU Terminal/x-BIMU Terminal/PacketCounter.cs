@@ -26,7 +26,12 @@ namespace x_BIMU_Terminal
         public int PacketsRate { get; private set; }
 
         /// <summary>
-        /// Variable used to calculate packet rate.
+        /// Used to calculate packet rate.
+        /// </summary>
+        private DateTime prevTime;
+
+        /// <summary>
+        /// Used to calculate packet rate.
         /// </summary>
         private int prevPacketsReceived;
 
@@ -67,7 +72,10 @@ namespace x_BIMU_Terminal
         /// </summary>
         void timer_Tick(object sender, EventArgs e)
         {
-            PacketsRate = PacketsReceived - prevPacketsReceived;
+            DateTime nowTime = DateTime.Now;
+            TimeSpan t = nowTime - prevTime;
+            prevTime = nowTime;
+            PacketsRate = (int)((float)(PacketsReceived - prevPacketsReceived) / ((float)t.Seconds + (float)t.Milliseconds * 0.001f));
             prevPacketsReceived = PacketsReceived;
         }
     }
