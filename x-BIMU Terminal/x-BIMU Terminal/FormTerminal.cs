@@ -75,8 +75,8 @@ namespace x_BIMU_Terminal
         public FormTerminal()
         {
             InitializeComponent();
-            //toolStripMenuItemTools.DropDownItems.Remove(toolStripMenuItemGyrAndAccCalibrationWizard);
-            //toolStripMenuItemTools.DropDownItems.Remove(toolStripMenuItemMagneticCalibrationWizard);
+            toolStripMenuItemTools.DropDownItems.Remove(toolStripMenuItemGyrAndAccCalibrationWizard);
+            toolStripMenuItemTools.DropDownItems.Remove(toolStripMenuItemMagneticCalibrationWizard);
         }
 
         #region Form load and close
