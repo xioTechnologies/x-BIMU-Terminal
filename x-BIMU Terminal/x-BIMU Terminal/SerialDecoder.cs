@@ -91,15 +91,18 @@ namespace x_BIMU_Terminal
                     switch (vars[0])
                     {
                         case ("Q"):
-                            OnQuaternionReceived(new int[] { Int32.Parse(vars[1]), Int32.Parse(vars[2]), Int32.Parse(vars[3]), Int32.Parse(vars[4]) }); /* quaternion elements 0, 1, 2, 3 */
+                            OnQuaternionReceived(new int[] { Int32.Parse(vars[1]), Int32.Parse(vars[2]), Int32.Parse(vars[3]), Int32.Parse(vars[4]),    /* quaternion elements 0, 1, 2, 3   */
+                                                             Int32.Parse(vars[10]) });                                                                  /* counter                          */
                             break;
                         case ("S"):
-                            OnSensorsReceived(new int[] { Int32.Parse(vars[1]), Int32.Parse(vars[2]), Int32.Parse(vars[3]),     /* gyroscope, X, Y, Z axes      */
-                                                          Int32.Parse(vars[4]), Int32.Parse(vars[5]), Int32.Parse(vars[6]),     /* acceleroemter, X, Y, Z axes  */
-                                                          Int32.Parse(vars[7]), Int32.Parse(vars[8]), Int32.Parse(vars[9])});   /* magnetometer, X, Y, Z axes   */
+                            OnSensorsReceived(new int[] { Int32.Parse(vars[1]), Int32.Parse(vars[2]), Int32.Parse(vars[3]), /* gyroscope, X, Y, Z axes      */
+                                                          Int32.Parse(vars[4]), Int32.Parse(vars[5]), Int32.Parse(vars[6]), /* acceleroemter, X, Y, Z axes  */
+                                                          Int32.Parse(vars[7]), Int32.Parse(vars[8]), Int32.Parse(vars[9]), /* magnetometer, X, Y, Z axes   */
+                                                          Int32.Parse(vars[10]) });                                         /* counter                      */
                             break;
                         case ("B"):
-                            OnBatteryReceived(new int[] { Int32.Parse(vars[1]) });  /* battery volatage */
+                            OnBatteryReceived(new int[] { Int32.Parse(vars[1]),     /* battery volatage */
+                                                          Int32.Parse(vars[10]) }); /* counter          */
                             break;
                         default:
                             throw new Exception();
@@ -123,10 +126,10 @@ namespace x_BIMU_Terminal
         /// </summary>
         private enum PacketLengths
         {
-            Quaterion = 10,
-            Sensor = 20,
-            Battery = 4,
-            Max = 20    /* maximum packet length of all packet types */
+            Quaterion = 11,
+            Sensor = 21,
+            Battery = 5,
+            Max = 21    /* maximum packet length of all packet types */
         }
 
         /// <summary>
@@ -175,10 +178,11 @@ namespace x_BIMU_Terminal
                 {
                     if (CalcChecksum((byte)PacketLengths.Quaterion) == 0)
                     {
-                        OnQuaternionReceived(new int[] { (short)((binBuf[binBufIndex - 9] << 8) | binBuf[binBufIndex - 8]),     /* quatenrion element 0 */
-                                                         (short)((binBuf[binBufIndex - 7] << 8) | binBuf[binBufIndex - 6]),     /* quatenrion element 1 */
-                                                         (short)((binBuf[binBufIndex - 5] << 8) | binBuf[binBufIndex - 4]),     /* quatenrion element 2 */
-                                                         (short)((binBuf[binBufIndex - 3] << 8) | binBuf[binBufIndex - 2]) });  /* quatenrion element 3 */
+                        OnQuaternionReceived(new int[] { (short)((binBuf[binBufIndex - 10] << 8) | binBuf[binBufIndex - 9]),    /* quatenrion element 0 */
+                                                         (short)((binBuf[binBufIndex - 8] << 8) | binBuf[binBufIndex - 7]),     /* quatenrion element 1 */
+                                                         (short)((binBuf[binBufIndex - 6] << 8) | binBuf[binBufIndex - 5]),     /* quatenrion element 2 */
+                                                         (short)((binBuf[binBufIndex - 4] << 8) | binBuf[binBufIndex - 3]),     /* quatenrion element 3 */
+                                                         binBuf[binBufIndex - 2] });                                            /* counter              */
                         binBufIndex = 0;
                         byteCount = 0;
                         inSync = true;
@@ -193,15 +197,16 @@ namespace x_BIMU_Terminal
                 {
                     if (CalcChecksum((byte)PacketLengths.Sensor) == 0)
                     {
-                        OnSensorsReceived(new int[] { (short)((binBuf[binBufIndex - 19] << 8) | binBuf[binBufIndex - 18]),  /* gyroscope X axis     */
-                                                      (short)((binBuf[binBufIndex - 17] << 8) | binBuf[binBufIndex - 16]),  /* gyroscope Y axis     */
-                                                      (short)((binBuf[binBufIndex - 15] << 8) | binBuf[binBufIndex - 14]),  /* gyroscope Z axis     */
-                                                      (short)((binBuf[binBufIndex - 13] << 8) | binBuf[binBufIndex - 12]),  /* accelerometer X axis */
-                                                      (short)((binBuf[binBufIndex - 11] << 8) | binBuf[binBufIndex - 10]),  /* accelerometer Y axis */
-                                                      (short)((binBuf[binBufIndex - 9] << 8) | binBuf[binBufIndex - 8]),    /* accelerometer Z axis */
-                                                      (short)((binBuf[binBufIndex - 7] << 8) | binBuf[binBufIndex - 6]),    /* magnetometer X axis  */
-                                                      (short)((binBuf[binBufIndex - 5] << 8) | binBuf[binBufIndex - 4]),    /* magnetometer Y axis  */
-                                                      (short)((binBuf[binBufIndex - 3] << 8) | binBuf[binBufIndex - 2]) }); /* magnetometer Z axis  */
+                        OnSensorsReceived(new int[] { (short)((binBuf[binBufIndex - 20] << 8) | binBuf[binBufIndex - 19]),  /* gyroscope X axis     */
+                                                      (short)((binBuf[binBufIndex - 18] << 8) | binBuf[binBufIndex - 17]),  /* gyroscope Y axis     */
+                                                      (short)((binBuf[binBufIndex - 16] << 8) | binBuf[binBufIndex - 15]),  /* gyroscope Z axis     */
+                                                      (short)((binBuf[binBufIndex - 14] << 8) | binBuf[binBufIndex - 13]),  /* accelerometer X axis */
+                                                      (short)((binBuf[binBufIndex - 12] << 8) | binBuf[binBufIndex - 11]),  /* accelerometer Y axis */
+                                                      (short)((binBuf[binBufIndex - 10] << 8) | binBuf[binBufIndex - 9 ]),  /* accelerometer Z axis */
+                                                      (short)((binBuf[binBufIndex - 8] << 8) | binBuf[binBufIndex - 7 ]),   /* magnetometer X axis  */
+                                                      (short)((binBuf[binBufIndex - 6] << 8) | binBuf[binBufIndex - 5 ]),   /* magnetometer Y axis  */
+                                                      (short)((binBuf[binBufIndex - 4] << 8) | binBuf[binBufIndex - 3 ]),   /* magnetometer Z axis  */
+                                                      binBuf[binBufIndex - 2] });                                           /* counter              */
                         binBufIndex = 0;
                         byteCount = 0;
                         inSync = true;
@@ -216,7 +221,8 @@ namespace x_BIMU_Terminal
                 {
                     if (CalcChecksum((byte)PacketLengths.Battery) == 0)
                     {
-                        OnBatteryReceived(new int[] { (short)((binBuf[binBufIndex - 3] << 8) | binBuf[binBufIndex - 2]) }); /* battery voltage  */
+                        OnBatteryReceived(new int[] { (short)((binBuf[binBufIndex - 4] << 8) | binBuf[binBufIndex - 3]) ,   /* battery voltage  */
+                                                      binBuf[binBufIndex - 2] });                                           /* counter          */
                         binBufIndex = 0;
                         byteCount = 0;
                         inSync = true;
