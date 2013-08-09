@@ -92,7 +92,7 @@ namespace x_BIMU_Terminal
                     {
                         case ("Q"):
                             OnQuaternionReceived(new int[] { Int32.Parse(vars[1]), Int32.Parse(vars[2]), Int32.Parse(vars[3]), Int32.Parse(vars[4]),    /* quaternion elements 0, 1, 2, 3   */
-                                                             Int32.Parse(vars[10]) });                                                                  /* counter                          */
+                                                             Int32.Parse(vars[5]) });                                                                   /* counter                          */
                             break;
                         case ("S"):
                             OnSensorsReceived(new int[] { Int32.Parse(vars[1]), Int32.Parse(vars[2]), Int32.Parse(vars[3]), /* gyroscope, X, Y, Z axes      */
@@ -102,7 +102,7 @@ namespace x_BIMU_Terminal
                             break;
                         case ("B"):
                             OnBatteryReceived(new int[] { Int32.Parse(vars[1]),     /* battery volatage */
-                                                          Int32.Parse(vars[10]) }); /* counter          */
+                                                          Int32.Parse(vars[2]) });  /* counter          */
                             break;
                         default:
                             throw new Exception();
