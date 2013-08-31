@@ -23,7 +23,7 @@ namespace x_BIMU_Terminal
         /// <summary>
         /// Packet receive rate as packets per second.
         /// </summary>
-        public int PacketsRate { get; private set; }
+        public int PacketRate { get; private set; }
 
         /// <summary>
         /// Used to calculate packet rate.
@@ -64,7 +64,7 @@ namespace x_BIMU_Terminal
         {
             prevPacketsReceived = 0;
             PacketsReceived = 0;
-            PacketsRate = 0;
+            PacketRate = 0;
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace x_BIMU_Terminal
             DateTime nowTime = DateTime.Now;
             TimeSpan t = nowTime - prevTime;
             prevTime = nowTime;
-            PacketsRate = (int)((float)(PacketsReceived - prevPacketsReceived) / ((float)t.Seconds + (float)t.Milliseconds * 0.001f));
+            PacketRate = (int)((float)(PacketsReceived - prevPacketsReceived) / ((float)t.Seconds + (float)t.Milliseconds * 0.001f));
             prevPacketsReceived = PacketsReceived;
         }
     }

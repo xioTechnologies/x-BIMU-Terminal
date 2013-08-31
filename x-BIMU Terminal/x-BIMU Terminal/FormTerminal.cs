@@ -160,7 +160,7 @@ namespace x_BIMU_Terminal
 
             // Update packet counter values
             toolStripStatusLabelPacketsReceived.Text = "Packets Recieved: " + packetCounter.PacketsReceived.ToString();
-            toolStripStatusLabelPacketRate.Text = "Packets Per Second: " + packetCounter.PacketsRate.ToString();
+            toolStripStatusLabelPacketRate.Text = "Packets Per Second: " + packetCounter.PacketRate.ToString();
         }
 
         /// <summary>
