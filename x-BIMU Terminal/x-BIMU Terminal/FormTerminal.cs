@@ -216,7 +216,7 @@ namespace x_BIMU_Terminal
         {
             if (!serialPort.IsOpen)
             {
-                MessageBox.Show("Serial port closed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Serial port closed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -434,7 +434,7 @@ namespace x_BIMU_Terminal
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -497,17 +497,17 @@ namespace x_BIMU_Terminal
             {
                 if ((b < 0x20 || b > 0x7F) && b != '\r')    // replace non-printable characters with '.'
                 {
-                    textBoxBuffer.Put(".");
+                    textBoxBuffer.Put('.');
                 }
                 else if (b == '\r')     // replace carriage return with '↵' and valid new line
                 {
                     textBoxBuffer.Put("↵" + Environment.NewLine);
                 }
-                else
+                else    // parse all other characters to textBoxBuffer
                 {
-                    textBoxBuffer.Put(((char)b).ToString());
+                    textBoxBuffer.Put((char)b);
                 }
-                serialDecoder.ProcessNewByte(b);
+                serialDecoder.ProcessNewByte(b);    // process every byte through serialDecoder
             }
         }
 

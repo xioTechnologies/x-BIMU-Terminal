@@ -63,11 +63,22 @@ namespace x_BIMU_Terminal
         {
             foreach (char c in str)
             {
-                buffer[inPos] = c;
-                if (++inPos == size - 1)
-                {
-                    inPos = 0;
-                }
+                Put(c);
+            }
+        }
+
+        /// <summary>
+        /// Adds char to buffer.
+        /// </summary>
+        /// <param name="c">
+        /// Char to add to buffer.
+        /// </param>
+        public void Put(char c)
+        {
+            buffer[inPos] = c;
+            if (++inPos == size - 1)
+            {
+                inPos = 0;
             }
         }
 
