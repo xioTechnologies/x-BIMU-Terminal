@@ -425,6 +425,7 @@ namespace x_BIMU_Terminal
             {
                 serialPort = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One);
                 serialPort.Handshake = Handshake.RequestToSend;
+                serialPort.WriteTimeout = 100;  // set timeout else writes to port with RTS will freeze application
                 serialPort.DtrEnable = true;
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
                 serialPort.Open();
