@@ -76,7 +76,7 @@ namespace x_BIMU_Terminal
                     // Split string to comma separated variables
                     string[] vars = asciiBuf.Split(',');
 
-                    // Validate cheksum (http://en.wikipedia.org/wiki/Longitudinal_redundancy_check)
+                    // Validate checksum (http://en.wikipedia.org/wiki/Longitudinal_redundancy_check)
                     byte checksum = 0;
                     for (int i = 0; i <= asciiBuf.LastIndexOf(','); i++)    // checksum does not include checksum characters
                     {
@@ -101,7 +101,7 @@ namespace x_BIMU_Terminal
                                                           Int32.Parse(vars[10]) });                                         /* counter                      */
                             break;
                         case ("B"):
-                            OnBatteryReceived(new int[] { Int32.Parse(vars[1]),     /* battery volatage */
+                            OnBatteryReceived(new int[] { Int32.Parse(vars[1]),     /* battery voltage */
                                                           Int32.Parse(vars[2]) });  /* counter          */
                             break;
                         default:
@@ -178,10 +178,10 @@ namespace x_BIMU_Terminal
                 {
                     if (CalcChecksum((byte)PacketLengths.Quaterion) == 0)
                     {
-                        OnQuaternionReceived(new int[] { (short)((binBuf[binBufIndex - 10] << 8) | binBuf[binBufIndex - 9]),    /* quatenrion element 0 */
-                                                         (short)((binBuf[binBufIndex - 8] << 8) | binBuf[binBufIndex - 7]),     /* quatenrion element 1 */
-                                                         (short)((binBuf[binBufIndex - 6] << 8) | binBuf[binBufIndex - 5]),     /* quatenrion element 2 */
-                                                         (short)((binBuf[binBufIndex - 4] << 8) | binBuf[binBufIndex - 3]),     /* quatenrion element 3 */
+                        OnQuaternionReceived(new int[] { (short)((binBuf[binBufIndex - 10] << 8) | binBuf[binBufIndex - 9]),    /* quaternion element 0 */
+                                                         (short)((binBuf[binBufIndex - 8] << 8) | binBuf[binBufIndex - 7]),     /* quaternion element 1 */
+                                                         (short)((binBuf[binBufIndex - 6] << 8) | binBuf[binBufIndex - 5]),     /* quaternion element 2 */
+                                                         (short)((binBuf[binBufIndex - 4] << 8) | binBuf[binBufIndex - 3]),     /* quaternion element 3 */
                                                          binBuf[binBufIndex - 2] });                                            /* counter              */
                         binBufIndex = 0;
                         byteCount = 0;

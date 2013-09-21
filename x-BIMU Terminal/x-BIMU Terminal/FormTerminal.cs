@@ -28,6 +28,21 @@ namespace x_BIMU_Terminal
         private SerialPort serialPort = new SerialPort();
 
         /// <summary>
+        /// Flag to indicate if recption of XStick channel value is active.
+        /// </summary>
+        private bool xStickRxActive = false;
+
+        /// <summary>
+        /// Buffer for decoding received XStick channel value.
+        /// </summary>
+        private string xStickRxBuffer = "";
+
+        /// <summary>
+        /// Received XStick channel value.
+        /// </summary>
+        private int xStickRxChannel = 0;
+
+        /// <summary>
         /// SerialStreamDecoder to decode serial data stream into packets.
         /// </summary>
         private SerialDecoder serialDecoder = new SerialDecoder();
@@ -220,18 +235,18 @@ namespace x_BIMU_Terminal
             }
             else
             {
-                serialPort.DataReceived -= new SerialDataReceivedEventHandler(serialPort_DataReceived);
+                xStickRxActive = true;
                 Thread.Sleep(110);
                 SendSerialPort("+++");  // enter command mode
                 Thread.Sleep(110);
-                SendSerialPort("ATCH" + Int32.Parse(Regex.Match(e.ClickedItem.Text, @"\d+").Value).ToString("X") + "\r");    // set channel
-                Thread.Sleep(100);
+                SendSerialPort("ATCH" + Int32.Parse(Regex.Match(e.ClickedItem.Text, @"\d+").Value).ToString("X") + "\r");   // set channel
+                Thread.Sleep(50);
                 SendSerialPort("ATWR\r");   // save registers
-                Thread.Sleep(100);
+                Thread.Sleep(50);
                 SendSerialPort("ATFR\r");   // software reset
-                Thread.Sleep(100);
-                serialPort.DiscardInBuffer();
-                serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
+                Thread.Sleep(50);
+                UpdateCaption();
+                xStickRxActive = false;
             }
         }
 
@@ -429,7 +444,7 @@ namespace x_BIMU_Terminal
                 serialPort.DtrEnable = true;
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
                 serialPort.Open();
-                this.Text = Assembly.GetExecutingAssembly().GetName().Name + " (" + portName + ")";
+                UpdateCaption();
                 packetCounter.Reset();
                 return true;
             }
@@ -438,6 +453,24 @@ namespace x_BIMU_Terminal
                 MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Updates form caption with Port number and XStick channel.
+        /// </summary>
+        private void UpdateCaption()
+        {
+            xStickRxActive = true;
+            Thread.Sleep(110);
+            SendSerialPort("+++");  // enter command mode
+            Thread.Sleep(110);
+            xStickRxChannel = 0;
+            SendSerialPort("ATCH\r");   // read channel
+            Thread.Sleep(50);
+            SendSerialPort("ATFR\r");   // software reset
+            Thread.Sleep(50);
+            xStickRxActive = false;
+            this.Text = Assembly.GetExecutingAssembly().GetName().Name + " (" + serialPort.PortName + ((xStickRxChannel == 0) ? "" : ", XStick Channel " + xStickRxChannel.ToString()) + ")";
         }
 
         /// <summary>
@@ -493,22 +526,42 @@ namespace x_BIMU_Terminal
             byte[] readBuffer = new byte[bytesToRead];
             serialPort.Read(readBuffer, 0, bytesToRead);
 
-            // Parse bytes to textBoxBuffer and serialDecoder
+            // Process bytes one at a time
             foreach (byte b in readBuffer)
             {
-                if ((b < 0x20 || b > 0x7F) && b != '\r')    // replace non-printable characters with '.'
+                // Decode channel value if XStick communication active
+                if (xStickRxActive)
                 {
-                    textBoxBuffer.Put('.');
+                    if ((char)b == '\r')   // attempt to decode channel value if new line character received
+                    {
+                        if (Regex.IsMatch(xStickRxBuffer, @"^[A-F0-9]+$") && xStickRxChannel == 0)
+                        {
+                            xStickRxChannel = Convert.ToInt32(xStickRxBuffer, 16);
+                        }
+                        xStickRxBuffer = "";
+                    }
+                    else
+                    {
+                        xStickRxBuffer += (char)b;
+                    }
                 }
-                else if (b == '\r')     // replace carriage return with '↵' and valid new line
+                else
                 {
-                    textBoxBuffer.Put("↵" + Environment.NewLine);
+                    // Parse bytes to textBoxBuffer and serialDecoder
+                    if ((b < 0x20 || b > 0x7F) && b != '\r')    // replace non-printable characters with '.'
+                    {
+                        textBoxBuffer.Put('.');
+                    }
+                    else if (b == '\r')     // replace carriage return with '↵' and valid new line
+                    {
+                        textBoxBuffer.Put("↵" + Environment.NewLine);
+                    }
+                    else    // parse all other characters to textBoxBuffer
+                    {
+                        textBoxBuffer.Put((char)b);
+                    }
+                    serialDecoder.ProcessNewByte(b);    // process every byte through serialDecoder
                 }
-                else    // parse all other characters to textBoxBuffer
-                {
-                    textBoxBuffer.Put((char)b);
-                }
-                serialDecoder.ProcessNewByte(b);    // process every byte through serialDecoder
             }
         }
 
