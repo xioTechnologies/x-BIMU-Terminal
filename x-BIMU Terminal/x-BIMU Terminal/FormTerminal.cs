@@ -331,16 +331,23 @@ namespace x_BIMU_Terminal
         /// </summary>
         private void toolStripMenuItemCommands_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            string stringToSend = e.ClickedItem.Text.Split('\"')[1];
-            stringToSend = stringToSend.Replace('↵', '\r');
-            if (stringToSend.Contains('#'))
+            if (!serialPort.IsOpen)
             {
-                FormGetValue formGetValue = new FormGetValue();
-                formGetValue.ShowDialog();
-                stringToSend = stringToSend.Insert(stringToSend.IndexOf('#'), formGetValue.value);
-                stringToSend = stringToSend.Remove(stringToSend.IndexOf('#'), 1);
+                MessageBox.Show("Serial port closed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            SendSerialPort(stringToSend);
+            else
+            {
+                string stringToSend = e.ClickedItem.Text.Split('\"')[1];
+                stringToSend = stringToSend.Replace('↵', '\r');
+                if (stringToSend.Contains('#'))
+                {
+                    FormGetValue formGetValue = new FormGetValue();
+                    formGetValue.ShowDialog();
+                    stringToSend = stringToSend.Insert(stringToSend.IndexOf('#'), formGetValue.value);
+                    stringToSend = stringToSend.Remove(stringToSend.IndexOf('#'), 1);
+                }
+                SendSerialPort(stringToSend);
+            }
         }
 
         /// <summary>
