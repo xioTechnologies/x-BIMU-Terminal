@@ -54,6 +54,8 @@
             this.toolStripMenuItemCommands = new System.Windows.Forms.ToolStripMenuItem();
             this.enterCommandModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitCommandModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printCommandListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.factoryResetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deviceResetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printGeneralRegistersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setXBeeChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +65,7 @@
             this.setBatterySendRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setBinaryPacketModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setAHRSGainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setAHRSModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setAHRSUseMagnetometerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setSleepTimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemGyrAndAccCalibrationWizard = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,8 +77,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelPacketsReceived = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelPacketRate = new System.Windows.Forms.ToolStripStatusLabel();
-            this.printCommandListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.factoryResetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -278,7 +278,7 @@
             this.setBatterySendRateToolStripMenuItem,
             this.setBinaryPacketModeToolStripMenuItem,
             this.setAHRSGainToolStripMenuItem,
-            this.setAHRSModeToolStripMenuItem,
+            this.setAHRSUseMagnetometerToolStripMenuItem,
             this.setSleepTimerToolStripMenuItem});
             this.toolStripMenuItemCommands.Name = "toolStripMenuItemCommands";
             this.toolStripMenuItemCommands.Size = new System.Drawing.Size(81, 20);
@@ -288,79 +288,91 @@
             // enterCommandModeToolStripMenuItem
             // 
             this.enterCommandModeToolStripMenuItem.Name = "enterCommandModeToolStripMenuItem";
-            this.enterCommandModeToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.enterCommandModeToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.enterCommandModeToolStripMenuItem.Text = "Enter Command Mode - \"---\"";
             // 
             // exitCommandModeToolStripMenuItem
             // 
             this.exitCommandModeToolStripMenuItem.Name = "exitCommandModeToolStripMenuItem";
-            this.exitCommandModeToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.exitCommandModeToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.exitCommandModeToolStripMenuItem.Text = "Exit Command Mode - \"EX↵\"";
+            // 
+            // printCommandListToolStripMenuItem
+            // 
+            this.printCommandListToolStripMenuItem.Name = "printCommandListToolStripMenuItem";
+            this.printCommandListToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.printCommandListToolStripMenuItem.Text = "Print Command List - \"CL↵\"";
+            // 
+            // factoryResetToolStripMenuItem
+            // 
+            this.factoryResetToolStripMenuItem.Name = "factoryResetToolStripMenuItem";
+            this.factoryResetToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.factoryResetToolStripMenuItem.Text = "Factory Reset - \"FR,#↵\"";
             // 
             // deviceResetToolStripMenuItem
             // 
             this.deviceResetToolStripMenuItem.Name = "deviceResetToolStripMenuItem";
-            this.deviceResetToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.deviceResetToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.deviceResetToolStripMenuItem.Text = "Reset Device - \"RD↵\"";
             // 
             // printGeneralRegistersToolStripMenuItem
             // 
             this.printGeneralRegistersToolStripMenuItem.Name = "printGeneralRegistersToolStripMenuItem";
-            this.printGeneralRegistersToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.printGeneralRegistersToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.printGeneralRegistersToolStripMenuItem.Text = "Print General Registers - \"PG↵\"";
             // 
             // setXBeeChannelToolStripMenuItem
             // 
             this.setXBeeChannelToolStripMenuItem.Name = "setXBeeChannelToolStripMenuItem";
-            this.setXBeeChannelToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setXBeeChannelToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setXBeeChannelToolStripMenuItem.Text = "Set XBee Channel \"CH,#↵\"";
             // 
             // setXBeeLowPowerModeToolStripMenuItem
             // 
             this.setXBeeLowPowerModeToolStripMenuItem.Name = "setXBeeLowPowerModeToolStripMenuItem";
-            this.setXBeeLowPowerModeToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setXBeeLowPowerModeToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setXBeeLowPowerModeToolStripMenuItem.Text = "Set XBee Low Power Mode - \"LP,#↵\"";
             // 
             // setQuaternionSendRateToolStripMenuItem
             // 
             this.setQuaternionSendRateToolStripMenuItem.Name = "setQuaternionSendRateToolStripMenuItem";
-            this.setQuaternionSendRateToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setQuaternionSendRateToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setQuaternionSendRateToolStripMenuItem.Text = "Set Quaternion Send Rate \"QR,#↵\"";
             // 
             // setSensorSendRateToolStripMenuItem
             // 
             this.setSensorSendRateToolStripMenuItem.Name = "setSensorSendRateToolStripMenuItem";
-            this.setSensorSendRateToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setSensorSendRateToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setSensorSendRateToolStripMenuItem.Text = "Set Sensor Send Rate \"SR,#↵\"";
             // 
             // setBatterySendRateToolStripMenuItem
             // 
             this.setBatterySendRateToolStripMenuItem.Name = "setBatterySendRateToolStripMenuItem";
-            this.setBatterySendRateToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setBatterySendRateToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setBatterySendRateToolStripMenuItem.Text = "Set Battery Send Rate \"BR,#↵\"";
             // 
             // setBinaryPacketModeToolStripMenuItem
             // 
             this.setBinaryPacketModeToolStripMenuItem.Name = "setBinaryPacketModeToolStripMenuItem";
-            this.setBinaryPacketModeToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setBinaryPacketModeToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setBinaryPacketModeToolStripMenuItem.Text = "Set Binary Packet Mode - \"BP,#↵\"";
             // 
             // setAHRSGainToolStripMenuItem
             // 
             this.setAHRSGainToolStripMenuItem.Name = "setAHRSGainToolStripMenuItem";
-            this.setAHRSGainToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setAHRSGainToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setAHRSGainToolStripMenuItem.Text = "Set AHRS Gain - \"AG,#↵\"";
             // 
-            // setAHRSModeToolStripMenuItem
+            // setAHRSUseMagnetometerToolStripMenuItem
             // 
-            this.setAHRSModeToolStripMenuItem.Name = "setAHRSModeToolStripMenuItem";
-            this.setAHRSModeToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
-            this.setAHRSModeToolStripMenuItem.Text = "Set AHRS No Magnetometer Mode - \"AM,#↵\"";
+            this.setAHRSUseMagnetometerToolStripMenuItem.Name = "setAHRSUseMagnetometerToolStripMenuItem";
+            this.setAHRSUseMagnetometerToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.setAHRSUseMagnetometerToolStripMenuItem.Text = "Set AHRS Use Magnetometer - \"AM,#↵\"";
             // 
             // setSleepTimerToolStripMenuItem
             // 
             this.setSleepTimerToolStripMenuItem.Name = "setSleepTimerToolStripMenuItem";
-            this.setSleepTimerToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.setSleepTimerToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.setSleepTimerToolStripMenuItem.Text = "Set Sleep Timer - \"ST,#↵\"";
             // 
             // toolStripMenuItemTools
@@ -440,18 +452,6 @@
             this.toolStripStatusLabelPacketRate.Size = new System.Drawing.Size(170, 15);
             this.toolStripStatusLabelPacketRate.Text = "toolStripStatusLabelPacketRate";
             // 
-            // printCommandListToolStripMenuItem
-            // 
-            this.printCommandListToolStripMenuItem.Name = "printCommandListToolStripMenuItem";
-            this.printCommandListToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
-            this.printCommandListToolStripMenuItem.Text = "Print Command List - \"CL↵\"";
-            // 
-            // factoryResetToolStripMenuItem
-            // 
-            this.factoryResetToolStripMenuItem.Name = "factoryResetToolStripMenuItem";
-            this.factoryResetToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
-            this.factoryResetToolStripMenuItem.Text = "Factory Reset - \"FR,#↵\"";
-            // 
             // FormTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,7 +497,7 @@
         private System.Windows.Forms.ToolStripMenuItem setQuaternionSendRateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setSensorSendRateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setBatterySendRateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setAHRSModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setAHRSUseMagnetometerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setAHRSGainToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setSleepTimerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setXBeeLowPowerModeToolStripMenuItem;
