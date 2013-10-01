@@ -82,6 +82,11 @@ namespace x_BIMU_Terminal
         /// </summary>
         private Oscilloscope batteryOscilloscope = Oscilloscope.CreateScope("Oscilloscope/batteryOscilloscope_settings.ini", "");
 
+        /// <summary>
+        /// CSV file writer.
+        /// </summary>
+        private CsvFileWriter csvFileWriter = null;
+
         #endregion
 
         /// <summary>
@@ -113,6 +118,10 @@ namespace x_BIMU_Terminal
                 {
                     form3DQuaternion.Quaternion = new float[] { i[0], i[1], i[2], i[3] };
                     packetCounter.Increment();
+                    if (csvFileWriter != null)
+                    {
+                        csvFileWriter.WriteQuaternionData(i[0], i[1], i[2], i[3], i[4]);
+                    }
                 }
             );
 
@@ -124,6 +133,10 @@ namespace x_BIMU_Terminal
                     accelerometerOscilloscope.AddScopeData(i[3], i[4], i[5]);
                     magnetometerOscilloscope.AddScopeData(i[6], i[7], i[8]);
                     packetCounter.Increment();
+                    if (csvFileWriter != null)
+                    {
+                        csvFileWriter.WriteSensorData(i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8], i[9]);
+                    }
                 }
             );
 
@@ -133,6 +146,10 @@ namespace x_BIMU_Terminal
                 {
                     batteryOscilloscope.AddScopeData(i[0], 0, 0);
                     packetCounter.Increment();
+                    if (csvFileWriter != null)
+                    {
+                        csvFileWriter.WriteBatteryData(i[0], i[1]);
+                    }
                 }
             );
 
@@ -176,6 +193,10 @@ namespace x_BIMU_Terminal
             // Update packet counter values
             toolStripStatusLabelPacketsReceived.Text = "Packets Recieved: " + packetCounter.PacketsReceived.ToString();
             toolStripStatusLabelPacketRate.Text = "Packets Per Second: " + packetCounter.PacketRate.ToString();
+            if(csvFileWriter != null){
+                TimeSpan t = csvFileWriter.GetTime();
+                toolStripMenuItemLogToFile.Text = "Stop Logging (" + string.Format("{0:D2}:{1:D2}:{2:D2}:{3:D3}", t.Hours, t.Minutes, t.Seconds, t.Milliseconds) + ")";
+            }
         }
 
         /// <summary>
@@ -351,6 +372,32 @@ namespace x_BIMU_Terminal
         }
 
         /// <summary>
+        /// toolStripMenuItemLogToFile Click event to toggle logging to file.
+        /// </summary>
+        private void toolStripMenuItemLogToFile_Click(object sender, EventArgs e)
+        {
+            if (csvFileWriter == null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Select File Location";
+                saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
+                saveFileDialog.OverwritePrompt = false;
+                saveFileDialog.FileName = "LoggedData";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    csvFileWriter = new CsvFileWriter(saveFileDialog.FileName.ToString());
+                    toolStripMenuItemLogToFile.Text = "Stop Logging";
+                }
+            }
+            else
+            {
+                csvFileWriter.CloseFiles();
+                csvFileWriter = null;
+                toolStripMenuItemLogToFile.Text = "Log To File";
+            }
+        }
+
+        /// <summary>
         /// toolStripMenuItemGyrAndAccCalWizard Click event to start magnetic calibration wizard.
         /// </summary>
         private void toolStripMenuItemGyrAndAccCalWizard_Click(object sender, EventArgs e)
@@ -447,7 +494,7 @@ namespace x_BIMU_Terminal
             {
                 serialPort = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One);
                 serialPort.Handshake = Handshake.RequestToSend;
-                serialPort.WriteTimeout = 100;  // set timeout else writes to port with RTS will freeze application
+                serialPort.WriteTimeout = 100;  // set timeout else writes to port without RTS will freeze application
                 serialPort.DtrEnable = true;
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
                 serialPort.Open();

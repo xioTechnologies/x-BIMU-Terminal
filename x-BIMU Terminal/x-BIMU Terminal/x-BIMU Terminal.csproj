@@ -59,6 +59,7 @@
     <Compile Include="3DQuaternion\Form3DQuaternion.designer.cs">
       <DependentUpon>Form3DQuaternion.cs</DependentUpon>
     </Compile>
+    <Compile Include="CsvFileWriter.cs" />
     <Compile Include="PacketCounter.cs" />
     <Compile Include="TextBoxBuffer.cs" />
     <Compile Include="FormGetValue.cs">
@@ -161,6 +162,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Wizards\FormMagCalWizard.resx">
       <DependentUpon>FormMagCalWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizards\FormWizard.resx">
       <DependentUpon>FormWizard.cs</DependentUpon>

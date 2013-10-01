@@ -68,6 +68,7 @@
             this.setAHRSUseMagnetometerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setSleepTimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLogToFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemGyrAndAccCalibrationWizard = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMagneticCalibrationWizard = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemFirmwareUploadWizard = new System.Windows.Forms.ToolStripMenuItem();
@@ -378,12 +379,20 @@
             // toolStripMenuItemTools
             // 
             this.toolStripMenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemLogToFile,
             this.toolStripMenuItemGyrAndAccCalibrationWizard,
             this.toolStripMenuItemMagneticCalibrationWizard,
             this.toolStripMenuItemFirmwareUploadWizard});
             this.toolStripMenuItemTools.Name = "toolStripMenuItemTools";
             this.toolStripMenuItemTools.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItemTools.Text = "Tools";
+            // 
+            // toolStripMenuItemLogToFile
+            // 
+            this.toolStripMenuItemLogToFile.Name = "toolStripMenuItemLogToFile";
+            this.toolStripMenuItemLogToFile.Size = new System.Drawing.Size(335, 22);
+            this.toolStripMenuItemLogToFile.Text = "Log To File";
+            this.toolStripMenuItemLogToFile.Click += new System.EventHandler(this.toolStripMenuItemLogToFile_Click);
             // 
             // toolStripMenuItemGyrAndAccCalibrationWizard
             // 
@@ -525,6 +534,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSourceCode;
         private System.Windows.Forms.ToolStripMenuItem printCommandListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem factoryResetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLogToFile;
     }
 }
 
