@@ -11,9 +11,9 @@ using System.Threading;
 namespace x_BIMU_Terminal
 {
     /// <summary>
-    /// Wizard base class. Not intended to be initialised though can be for development purposes.
+    /// FormTool base class. Not intended to be initialised though can be for development purposes.
     /// </summary>
-    public partial class FormWizard : Form
+    public partial class FormTool : Form
     {
         /// <summary>
         /// Internal commandConfirmed flag.
@@ -23,10 +23,10 @@ namespace x_BIMU_Terminal
         /// <summary>
         /// Constructor.
         /// </summary>
-        public FormWizard()
+        public FormTool()
         {
             InitializeComponent();
-            //Initialize(); // include this if class to be initialised.
+            //Initialise(); // include this if class to be initialised.
         }
 
         /// <summary>
@@ -37,15 +37,13 @@ namespace x_BIMU_Terminal
             this.Size = new Size(500, 370);
             panelPage1.Dock = DockStyle.Fill;
             panelPage2.Dock = DockStyle.Fill;
-            panelPage3.Dock = DockStyle.Fill;
             panelPage2.Visible = false;
-            panelPage3.Visible = false;
         }
 
         /// <summary>
-        /// buttonNextPage1 Click to show second page and call DoTasks method in new thread.
+        /// buttonNext Click to show second page and call DoTasks method in new thread.
         /// </summary>
-        private void buttonNextPage1_Click(object sender, EventArgs e)
+        private void buttonNext_Click(object sender, EventArgs e)
         {
             panelPage1.Visible = false;
             panelPage2.Visible = true;
@@ -56,7 +54,8 @@ namespace x_BIMU_Terminal
                 try
                 {
                     DoTasks();
-                    this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { buttonNextPage2.Enabled = true; })));
+                    this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { buttonCancelPage2.Enabled = false; })));
+                    this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { buttonFinish.Enabled = true; })));
                 }
                 catch (Exception ex)
                 {
@@ -67,18 +66,9 @@ namespace x_BIMU_Terminal
         }
 
         /// <summary>
-        /// buttonNextPage2 Click to show third page.
-        /// </summary>
-        private void buttonNextPage2_Click(object sender, EventArgs e)
-        {
-            panelPage2.Visible = false;
-            panelPage3.Visible = true;
-        }
-
-        /// <summary>
         /// buttonCancelOrFinish Click to close form.
         /// </summary>
-        private void buttonCancelOrFinish_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -112,7 +102,7 @@ namespace x_BIMU_Terminal
             {
                 this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate
                 {
-                    MessageBox.Show("Commincation with x-BIMU failed. Wizard aborted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Commincation with x-BIMU failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Close();
                 })));
             }

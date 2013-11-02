@@ -78,29 +78,29 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerialDecoder.cs" />
-    <Compile Include="Wizards\FormFirmwareUploadWizard.cs">
+    <Compile Include="Tools\FormToolGyroscopeAndAccelerometerCalibration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\FormFirmwareUploadWizard.Designer.cs">
-      <DependentUpon>FormFirmwareUploadWizard.cs</DependentUpon>
+    <Compile Include="Tools\FormToolGyroscopeAndAccelerometerCalibration.Designer.cs">
+      <DependentUpon>FormToolGyroscopeAndAccelerometerCalibration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\FormGyrAndAccCalWizard.cs">
+    <Compile Include="Tools\FormTool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\FormGyrAndAccCalWizard.Designer.cs">
-      <DependentUpon>FormGyrAndAccCalWizard.cs</DependentUpon>
+    <Compile Include="Tools\FormTool.Designer.cs">
+      <DependentUpon>FormTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\FormMagCalWizard.cs">
+    <Compile Include="Tools\FormToolMagneticCalibration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\FormMagCalWizard.Designer.cs">
-      <DependentUpon>FormMagCalWizard.cs</DependentUpon>
+    <Compile Include="Tools\FormToolMagneticCalibration.Designer.cs">
+      <DependentUpon>FormToolMagneticCalibration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\FormWizard.cs">
+    <Compile Include="Tools\FormToolUploadFirmware.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\FormWizard.Designer.cs">
-      <DependentUpon>FormWizard.cs</DependentUpon>
+    <Compile Include="Tools\FormToolUploadFirmware.Designer.cs">
+      <DependentUpon>FormToolUploadFirmware.cs</DependentUpon>
     </Compile>
     <Content Include="ds30LoaderConsole.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -154,18 +154,17 @@
     <Content Include="Oscilloscope\magnetometerOscilloscope_settings.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Wizards\FormFirmwareUploadWizard.resx">
-      <DependentUpon>FormFirmwareUploadWizard.cs</DependentUpon>
+    <EmbeddedResource Include="Tools\FormToolGyroscopeAndAccelerometerCalibration.resx">
+      <DependentUpon>FormToolGyroscopeAndAccelerometerCalibration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\FormGyrAndAccCalWizard.resx">
-      <DependentUpon>FormGyrAndAccCalWizard.cs</DependentUpon>
+    <EmbeddedResource Include="Tools\FormTool.resx">
+      <DependentUpon>FormTool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\FormMagCalWizard.resx">
-      <DependentUpon>FormMagCalWizard.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Tools\FormToolMagneticCalibration.resx">
+      <DependentUpon>FormToolMagneticCalibration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\FormWizard.resx">
-      <DependentUpon>FormWizard.cs</DependentUpon>
+    <EmbeddedResource Include="Tools\FormToolUploadFirmware.resx">
+      <DependentUpon>FormToolUploadFirmware.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

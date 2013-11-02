@@ -398,45 +398,45 @@ namespace x_BIMU_Terminal
         }
 
         /// <summary>
-        /// toolStripMenuItemGyrAndAccCalWizard Click event to start magnetic calibration wizard.
+        /// toolStripMenuItemGyrAndAccCalTool Click event to start magnetic calibration wizard.
         /// </summary>
-        private void toolStripMenuItemGyrAndAccCalWizard_Click(object sender, EventArgs e)
+        private void toolStripMenuItemGyrAndAccCalTool_Click(object sender, EventArgs e)
         {
-            FormGyrAndAccCalWizard formGyrAndAccCalWizard = new FormGyrAndAccCalWizard();
-            formGyrAndAccCalWizard.SendSerialPort += SendSerialPort;
-            serialDecoder.OKReceived += formGyrAndAccCalWizard.OKReceived;
-            serialDecoder.SensorsReceived += formGyrAndAccCalWizard.SensorsReceived;
-            formGyrAndAccCalWizard.ShowDialog();
+            formToolGyroscopeAndAccelerometerCalibration formToolGyroscopeAndAccelerometerCalibration = new formToolGyroscopeAndAccelerometerCalibration();
+            formToolGyroscopeAndAccelerometerCalibration.SendSerialPort += SendSerialPort;
+            serialDecoder.OKReceived += formToolGyroscopeAndAccelerometerCalibration.OKReceived;
+            serialDecoder.SensorsReceived += formToolGyroscopeAndAccelerometerCalibration.SensorsReceived;
+            formToolGyroscopeAndAccelerometerCalibration.ShowDialog();
         }
 
         /// <summary>
-        /// toolStripMenuItemMagCalWizard Click event to start magnetic calibration wizard.
+        /// toolStripMenuItemMagCalTool Click event to start magnetic calibration wizard.
         /// </summary>
-        private void toolStripMenuItemMagCalWizard_Click(object sender, EventArgs e)
+        private void toolStripMenuItemMagCalTool_Click(object sender, EventArgs e)
         {
-            FormMagCalWizard formMagCalWizard = new FormMagCalWizard();
-            formMagCalWizard.SendSerialPort += SendSerialPort;
-            serialDecoder.OKReceived += formMagCalWizard.OKReceived;
-            serialDecoder.SensorsReceived += formMagCalWizard.SensorsReceived;
-            formMagCalWizard.ShowDialog();
+            FormToolMagneticCalibration formToolMagneticCalibration = new FormToolMagneticCalibration();
+            formToolMagneticCalibration.SendSerialPort += SendSerialPort;
+            serialDecoder.OKReceived += formToolMagneticCalibration.OKReceived;
+            serialDecoder.SensorsReceived += formToolMagneticCalibration.SensorsReceived;
+            formToolMagneticCalibration.ShowDialog();
         }
 
         /// <summary>
-        /// toolStripMenuItemFirmwareUploadWizard Click event to start firmware upload wizard.
+        /// toolStripMenuItemFirmwareUploadTool Click event to start firmware upload wizard.
         /// </summary>
-        private void toolStripMenuItemFirmwareUploadWizard_Click(object sender, EventArgs e)
+        private void toolStripMenuItemFirmwareUploadTool_Click(object sender, EventArgs e)
         {
-            FormFirmwareUploadWizard formFirmwareWizard = new FormFirmwareUploadWizard();
-            formFirmwareWizard.serialPort = serialPort;
-            formFirmwareWizard.SendSerialPort += SendSerialPort;
-            serialDecoder.OKReceived += formFirmwareWizard.OKReceived;
-            formFirmwareWizard.ShowDialog();
+            FormToolUploadFirmware formToolFormToolUploadFirmware = new FormToolUploadFirmware();
+            formToolFormToolUploadFirmware.serialPort = serialPort;
+            formToolFormToolUploadFirmware.SendSerialPort += SendSerialPort;
+            serialDecoder.OKReceived += formToolFormToolUploadFirmware.OKReceived;
+            formToolFormToolUploadFirmware.ShowDialog();
         }
 
         /// <summary>
-        /// toolStripMenuItemFirmwareUploaderWizard Click event to start firmware uploader wizard.
+        /// toolStripMenuItemFirmwareUploaderTool Click event to start firmware uploader wizard.
         /// </summary>
-        private void toolStripMenuItemFirmwareUploaderWizard_Click(object sender, EventArgs e)
+        private void toolStripMenuItemFirmwareUploaderTool_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Feature not available", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

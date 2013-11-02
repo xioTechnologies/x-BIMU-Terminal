@@ -13,7 +13,7 @@ namespace x_BIMU_Terminal
     /// <summary>
     /// Gyroscope and accelerometer calibration wizard class.
     /// </summary>
-    public partial class FormGyrAndAccCalWizard : FormWizard
+    public partial class formToolGyroscopeAndAccelerometerCalibration : FormTool
     {
         /// <summary>
         /// Nested MeanAccumulator class.
@@ -173,7 +173,7 @@ namespace x_BIMU_Terminal
         /// <summary>
         /// Construcctor.
         /// </summary>
-        public FormGyrAndAccCalWizard()
+        public formToolGyroscopeAndAccelerometerCalibration()
         {
             InitializeComponent();
             Initialise();

@@ -118,18 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="labelTextPage1.Text" xml:space="preserve">
-    <value>Welcome to the magnetometer calibration wizard.
+    <value>Magnetic calibration tool.  Please refer to user manual for details and instructions.
 
-WARNING - Starting this calibration process will delete the existing calibration parameters.
-
-Cancel this wizard now if you are not familiar with the calibration process.
-</value>
-  </data>
-  <data name="labelTextPage3.Text" xml:space="preserve">
-    <value>The magnetometer calibration wizard is complete.
-
-Some register values were altered prior to calibration process and you may now need to reconfigure your desired register settings.
-
-You can revert to the factory calibration parameters using the factory reset command.</value>
+WARNING - Starting this calibration process will delete the existing calibration parameters.  Click cancel if you are not familiar with the process.</value>
   </data>
 </root>

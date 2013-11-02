@@ -69,9 +69,9 @@
             this.setSleepTimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLogToFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemGyrAndAccCalibrationWizard = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemMagneticCalibrationWizard = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemFirmwareUploadWizard = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemGyroscopeAndAccelerometerCalibration = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemMagneticCalibration = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemFormToolUploadFirmware = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSourceCode = new System.Windows.Forms.ToolStripMenuItem();
@@ -380,9 +380,9 @@
             // 
             this.toolStripMenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemLogToFile,
-            this.toolStripMenuItemGyrAndAccCalibrationWizard,
-            this.toolStripMenuItemMagneticCalibrationWizard,
-            this.toolStripMenuItemFirmwareUploadWizard});
+            this.toolStripMenuItemGyroscopeAndAccelerometerCalibration,
+            this.toolStripMenuItemMagneticCalibration,
+            this.toolStripMenuItemFormToolUploadFirmware});
             this.toolStripMenuItemTools.Name = "toolStripMenuItemTools";
             this.toolStripMenuItemTools.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItemTools.Text = "Tools";
@@ -390,30 +390,30 @@
             // toolStripMenuItemLogToFile
             // 
             this.toolStripMenuItemLogToFile.Name = "toolStripMenuItemLogToFile";
-            this.toolStripMenuItemLogToFile.Size = new System.Drawing.Size(335, 22);
+            this.toolStripMenuItemLogToFile.Size = new System.Drawing.Size(296, 22);
             this.toolStripMenuItemLogToFile.Text = "Log To File";
             this.toolStripMenuItemLogToFile.Click += new System.EventHandler(this.toolStripMenuItemLogToFile_Click);
             // 
-            // toolStripMenuItemGyrAndAccCalibrationWizard
+            // toolStripMenuItemGyroscopeAndAccelerometerCalibration
             // 
-            this.toolStripMenuItemGyrAndAccCalibrationWizard.Name = "toolStripMenuItemGyrAndAccCalibrationWizard";
-            this.toolStripMenuItemGyrAndAccCalibrationWizard.Size = new System.Drawing.Size(335, 22);
-            this.toolStripMenuItemGyrAndAccCalibrationWizard.Text = "Gyroscope And Accelerometer Calibration Wizard";
-            this.toolStripMenuItemGyrAndAccCalibrationWizard.Click += new System.EventHandler(this.toolStripMenuItemGyrAndAccCalWizard_Click);
+            this.toolStripMenuItemGyroscopeAndAccelerometerCalibration.Name = "toolStripMenuItemGyroscopeAndAccelerometerCalibration";
+            this.toolStripMenuItemGyroscopeAndAccelerometerCalibration.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemGyroscopeAndAccelerometerCalibration.Text = "Gyroscope And Accelerometer Calibration";
+            this.toolStripMenuItemGyroscopeAndAccelerometerCalibration.Click += new System.EventHandler(this.toolStripMenuItemGyrAndAccCalTool_Click);
             // 
-            // toolStripMenuItemMagneticCalibrationWizard
+            // toolStripMenuItemMagneticCalibration
             // 
-            this.toolStripMenuItemMagneticCalibrationWizard.Name = "toolStripMenuItemMagneticCalibrationWizard";
-            this.toolStripMenuItemMagneticCalibrationWizard.Size = new System.Drawing.Size(335, 22);
-            this.toolStripMenuItemMagneticCalibrationWizard.Text = "Magnetic Calibration Wizard";
-            this.toolStripMenuItemMagneticCalibrationWizard.Click += new System.EventHandler(this.toolStripMenuItemMagCalWizard_Click);
+            this.toolStripMenuItemMagneticCalibration.Name = "toolStripMenuItemMagneticCalibration";
+            this.toolStripMenuItemMagneticCalibration.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemMagneticCalibration.Text = "Magnetic Calibration";
+            this.toolStripMenuItemMagneticCalibration.Click += new System.EventHandler(this.toolStripMenuItemMagCalTool_Click);
             // 
-            // toolStripMenuItemFirmwareUploadWizard
+            // toolStripMenuItemFormToolUploadFirmware
             // 
-            this.toolStripMenuItemFirmwareUploadWizard.Name = "toolStripMenuItemFirmwareUploadWizard";
-            this.toolStripMenuItemFirmwareUploadWizard.Size = new System.Drawing.Size(335, 22);
-            this.toolStripMenuItemFirmwareUploadWizard.Text = "Firmware Upload Wizard";
-            this.toolStripMenuItemFirmwareUploadWizard.Click += new System.EventHandler(this.toolStripMenuItemFirmwareUploadWizard_Click);
+            this.toolStripMenuItemFormToolUploadFirmware.Name = "toolStripMenuItemFormToolUploadFirmware";
+            this.toolStripMenuItemFormToolUploadFirmware.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItemFormToolUploadFirmware.Text = "Upload Firmware";
+            this.toolStripMenuItemFormToolUploadFirmware.Click += new System.EventHandler(this.toolStripMenuItemFirmwareUploadTool_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -498,7 +498,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemQuaternion;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTools;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMagneticCalibrationWizard;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMagneticCalibration;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCommands;
         private System.Windows.Forms.ToolStripMenuItem enterCommandModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printGeneralRegistersToolStripMenuItem;
@@ -512,7 +512,7 @@
         private System.Windows.Forms.ToolStripMenuItem setXBeeLowPowerModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitCommandModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setXBeeChannelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGyrAndAccCalibrationWizard;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemGyroscopeAndAccelerometerCalibration;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPacketsReceived;
         private System.Windows.Forms.ToolStripMenuItem setBinaryPacketModeToolStripMenuItem;
@@ -530,7 +530,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel22;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel23;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetChannel21;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFirmwareUploadWizard;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFormToolUploadFirmware;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSourceCode;
         private System.Windows.Forms.ToolStripMenuItem printCommandListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem factoryResetToolStripMenuItem;

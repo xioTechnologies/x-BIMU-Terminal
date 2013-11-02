@@ -12,9 +12,9 @@ using System.IO;
 namespace x_BIMU_Terminal
 {
     /// <summary>
-    /// Magnetoemter Calibration Wizard.
+    /// Magnetoemter Calibration Tool.
     /// </summary>
-    public partial class FormMagCalWizard : FormWizard
+    public partial class FormToolMagneticCalibration : FormTool
     {
         /// <summary>
         /// StreamWriter to streaming calibration dataset to file.
@@ -24,7 +24,7 @@ namespace x_BIMU_Terminal
         /// <summary>
         /// Constructor.
         /// </summary>
-        public FormMagCalWizard()
+        public FormToolMagneticCalibration()
         {
             InitializeComponent();
             Initialise();
@@ -162,9 +162,9 @@ namespace x_BIMU_Terminal
         }
 
         /// <summary>
-        /// FormMagCalWizard FormClosing event to close file.
+        /// FormToolMagneticCalibration FormClosing event to close file.
         /// </summary>
-        private void FormMagCalWizard_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormToolMagneticCalibration_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {

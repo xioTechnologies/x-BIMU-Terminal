@@ -13,10 +13,7 @@ using System.Diagnostics;
 
 namespace x_BIMU_Terminal
 {
-    /// <summary>
-    /// Firmware upload wizard.
-    /// </summary>
-    public partial class FormFirmwareUploadWizard : FormWizard
+    public partial class FormToolUploadFirmware : FormTool
     {
         /// <summary>
         /// SerialPort object used by terminal.
@@ -26,17 +23,16 @@ namespace x_BIMU_Terminal
         /// <summary>
         /// Constructor.
         /// </summary>
-        public FormFirmwareUploadWizard()
+        public FormToolUploadFirmware()
         {
             InitializeComponent();
             Initialise();
-            buttonNextPage1.Enabled = false;
         }
 
         /// <summary>
         /// button_browse Click event to open file select dialog.
         /// </summary>
-        private void button_browse_Click(object sender, EventArgs e)
+        private void buttonBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select Firmware Hex File";
@@ -45,7 +41,7 @@ namespace x_BIMU_Terminal
             {
                 textBoxHexFile.Text = openFileDialog.FileName.ToString();
             }
-            buttonNextPage1.Enabled = File.Exists(textBoxHexFile.Text);
+            buttonNext.Enabled = File.Exists(textBoxHexFile.Text);
         }
 
         /// <summary>
@@ -55,7 +51,7 @@ namespace x_BIMU_Terminal
         {
             Reset();
             RunBootloader();
-            this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += Environment.NewLine + Environment.NewLine + "Click Next to continue..."; })));
+            this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += Environment.NewLine + Environment.NewLine + "Click Finish to exit."; })));
         }
 
         /// <summary>
@@ -63,7 +59,7 @@ namespace x_BIMU_Terminal
         /// </summary>
         private void Reset()
         {
-            this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text = "Resetting..."; })));
+            this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text = "Resetting device..."; })));
             ExicuteCommand("---");      // enter comamnd mode
             ExicuteCommand("RD\r");     // reset device command
             this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += "Compelte."; })));
