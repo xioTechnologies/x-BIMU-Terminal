@@ -78,6 +78,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelPacketsReceived = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelPacketRate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -268,6 +269,7 @@
             this.toolStripMenuItemCommands.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enterCommandModeToolStripMenuItem,
             this.exitCommandModeToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.printCommandListToolStripMenuItem,
             this.factoryResetToolStripMenuItem,
             this.deviceResetToolStripMenuItem,
@@ -461,6 +463,11 @@
             this.toolStripStatusLabelPacketRate.Size = new System.Drawing.Size(170, 15);
             this.toolStripStatusLabelPacketRate.Text = "toolStripStatusLabelPacketRate";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(281, 6);
+            // 
             // FormTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,6 +542,7 @@
         private System.Windows.Forms.ToolStripMenuItem printCommandListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem factoryResetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLogToFile;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 
