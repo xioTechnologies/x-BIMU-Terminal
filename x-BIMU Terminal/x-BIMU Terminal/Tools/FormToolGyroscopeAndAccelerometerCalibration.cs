@@ -187,6 +187,7 @@ namespace x_BIMU_Terminal
             SetupRegisters();
             CollectData();
             UpdateRegisters();
+            this.EndInvoke(this.BeginInvoke(new MethodInvoker(delegate { labelTextPage2.Text += Environment.NewLine + Environment.NewLine + "Click Finish to exit."; })));
         }
 
         /// <summary>
